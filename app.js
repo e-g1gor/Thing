@@ -44,7 +44,8 @@ function createThing(initNumbers = []) {
         }
 
         /** Fill numbers array with initial values, if provided */
-        initNumbers.forEach(number => Thing.addNumber(number))
+        if(Array.isArray(initNumbers))
+            initNumbers.forEach(number => Thing.addNumber(number))
 
     return Thing
 }
@@ -54,6 +55,9 @@ function createThing(initNumbers = []) {
 window.addEventListener('load', () => {
 
     document.title = 'Thing: code loaded'
+    
+    /** GUI bind */
+    document.getElementById('report')
 
     // test
     let Thing = createThing([1,'2',3,4,Infinity,5,'hg6', 'gffg'])
