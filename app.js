@@ -15,8 +15,8 @@ function createThing(initNumbers = []) {
                 /** Convert to number */
                 let number = (num - 0)
 
-                /** If NaN offered, report error */
-                if (Number.isNaN(number))
+                /** If not a number offered, report error */
+                if (isNaN(number) || !isFinite(number))
                     return false
 
                 /** add number and report success */
@@ -55,8 +55,9 @@ window.addEventListener('load', () => {
 
     document.title = 'Thing: code loaded'
 
-    let Thing = createThing([1,2,3,4,5])
     // test
-    // document.body.innerHTML = `avg = ${Thing.AVG}, min = ${Thing.MIN}, max = ${Thing.MAX}, `
+    let Thing = createThing([1,'2',3,4,Infinity,5,'hg6', 'gffg'])
+    
+    document.body.innerHTML = `avg = ${Thing.AVG}, min = ${Thing.MIN}, max = ${Thing.MAX}, `
 
 })
