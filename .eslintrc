@@ -1,0 +1,22 @@
+{
+  "extends": ["eslint:recommended"],
+  "parserOptions": {
+    "ecmaVersion": 10
+  },
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "rules": {
+    "no-extra-semi": 1,
+    "no-inner-declarations": 2,
+    "no-undef": 2,
+    "no-unused-vars":"warn",
+
+    "comma-dangle": [
+      "error",
+      "never"
+    ]
+  },
+  "globals": {}
+}
