@@ -43,9 +43,9 @@ function createThing(initNumbers = []) {
             }
         }
 
-        /** Fill numbers array with initial values, if provided */
-        if(Array.isArray(initNumbers))
-            initNumbers.forEach(number => Thing.addNumber(number))
+    /** Fill numbers array with initial values, if provided */
+    if (Array.isArray(initNumbers))
+        initNumbers.forEach(number => Thing.addNumber(number))
 
     return Thing
 }
@@ -55,13 +55,37 @@ function createThing(initNumbers = []) {
 window.addEventListener('load', () => {
 
     document.title = 'Thing: code loaded'
-    
-    /** GUI bind */
-    document.getElementById('report')
+
+    /** GUI bind code to DOM */
+    let table = {
+        min: document.getElementById('min'),
+        max: document.getElementById('max'),
+        avg: document.getElementById('avg'),
+        render(min, max, avg) {
+            this.min.innerText = min
+            this.max.innerText = max
+            this.avg.innerText = avg
+        }
+    },
+        newNumber = document.getElementById('newNumber')
+
+    /** report thing state */
+    document.getElementById('report').addEventListener('click', () => {
+        table.render(Thing.MIN, Thing.MAX, Thing.AVG)
+    })
+
+    /** add number handler */
+    document.getElementById('addNumber').addEventListener('click', () => {
+        /** if number is provided, try to add */
+        let rez = newNumber.value!=='' | Thing.addNumber(newNumber.value)
+        /** clear field on success or report error */
+        if (rez)
+            newNumber.value = ''
+        else
+            alert('You must enter valid number less than 1.7976931348623157e+308')
+    })
 
     // test
-    let Thing = createThing([1,'2',3,4,Infinity,5,'hg6', 'gffg'])
+    let Thing = createThing([1, '2', 3, 4, Infinity, 5, 'hg6', 'gffg'])
     
-    document.body.innerHTML = `avg = ${Thing.AVG}, min = ${Thing.MIN}, max = ${Thing.MAX}, `
-
 })
