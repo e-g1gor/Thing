@@ -1,0 +1,19 @@
+table {
+    border-collapse: collapse;
+    border: solid 1px #000;
+  }
+  table tr {
+    border: solid 1px #000;
+  }
+  table td {
+    border: solid 1px #000;
+  }
+  #report {
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+  }
+  #report :hover {
+    background-color: #ffa500;
+  }
+  

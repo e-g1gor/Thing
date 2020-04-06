@@ -57,6 +57,6 @@ window.addEventListener('load', () => {
 
     let Thing = createThing([1,2,3,4,5])
     // test
-    document.body.innerHTML = `avg = ${Thing.AVG}, min = ${Thing.MIN}, max = ${Thing.MAX}, `
+    // document.body.innerHTML = `avg = ${Thing.AVG}, min = ${Thing.MIN}, max = ${Thing.MAX}, `
 
 })

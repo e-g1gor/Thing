@@ -1,0 +1,21 @@
+html
+  head
+    link(rel="stylesheet" href="style.css", attr)
+    script(src='app.js')
+  body
+    form
+      input#newNumber(type='number' placeholder='Enter your number')
+      input#addNumber(type='button' value='Add this number')
+    br
+    table
+      tr#report
+        td(colspan=3)
+          input(type='button' value='Show me what you got')
+      tr
+        td Largest
+        td Smallest
+        td Average
+      tr
+        td#max &nbsp;
+        td#min &nbsp;
+        td#avg &nbsp;
